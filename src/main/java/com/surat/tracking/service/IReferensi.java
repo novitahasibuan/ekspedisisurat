@@ -15,10 +15,13 @@ import javax.servlet.http.HttpServletRequest;
  * @author tik
  */
 public interface IReferensi {
-    
-    public List<Role> getDataRole(HttpServletRequest request);
-    
-    public List<Unit> getDataUnit(HttpServletRequest request);
-    
-    
+
+//    public List<Object> getDataRole(HttpServletRequest request);
+//    
+//    public List<Unit> getDataUnit(HttpServletRequest request);
+//    
+    public List<Role> listRole();
+
+    public List<Unit> listUnit();
+
 }

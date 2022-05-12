@@ -13,6 +13,7 @@ import com.surat.tracking.web.dto.UserRegistrationDto;
  * @author tik
  */
 public interface IUserService {
+
     User save(UserRegistrationDto registrationDto);
-    
+
 }

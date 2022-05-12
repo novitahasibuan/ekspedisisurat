@@ -7,9 +7,13 @@ package com.surat.tracking.service.impl;
 
 import com.surat.tracking.model.Role;
 import com.surat.tracking.model.Unit;
+import com.surat.tracking.repository.RoleRepo;
+import com.surat.tracking.repository.UnitRepo;
 import com.surat.tracking.service.IReferensi;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,14 +23,33 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReferensiServiceImpl implements IReferensi {
 
+    @Autowired
+    RoleRepo roleRepo;
+    @Autowired
+    UnitRepo unitRepo;
+
     @Override
-    public List<Role> getDataRole(HttpServletRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Role> listRole() {
+        List<Role> roles = new ArrayList<>();
+        try {
+            System.out.println("role" + roleRepo.findAll());
+            return roles = roleRepo.findAll();
+        } catch (Exception ex) {
+            System.out.println("role " + ex);
+            return null;
+        }
     }
 
     @Override
-    public List<Unit> getDataUnit(HttpServletRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Unit> listUnit() {
+        List<Unit> unit = new ArrayList<>();
+        try {
+            System.out.println("unit" + unitRepo.findAll());
+            return unit = unitRepo.findAll();
+        } catch (Exception ex) {
+            System.out.println("role " + ex);
+            return null;
+        }
     }
 
 }

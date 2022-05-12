@@ -26,6 +26,9 @@ public class Role {
     private Long id;
     private String nama_role;
 
+    public Role() {
+    }
+
     public Role(String nama_role) {
         this.nama_role = nama_role;
     }

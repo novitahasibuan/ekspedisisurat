@@ -15,19 +15,17 @@ import lombok.Data;
 public class UserRegistrationDto {
 
     private String nip;
-    private String password;
     private String nama_pegawai;
+    private String password;
 
-    public UserRegistrationDto(String nip, String password, String nama_pegawai) {
+    public UserRegistrationDto(String nip, String nama_pegawai, String password) {
         super();
         this.nip = nip;
-        this.password = password;
         this.nama_pegawai = nama_pegawai;
+        this.password = password;
     }
 
     public UserRegistrationDto() {
     }
-    
-    
 
 }

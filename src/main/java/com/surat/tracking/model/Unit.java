@@ -26,6 +26,9 @@ public class Unit {
     private Long id;
     private String nama_unit;
 
+    public Unit() {
+    }
+
     public Unit(String nama_unit) {
         this.nama_unit = nama_unit;
     }
