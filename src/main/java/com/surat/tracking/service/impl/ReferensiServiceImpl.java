@@ -9,10 +9,11 @@ import com.surat.tracking.model.Role;
 import com.surat.tracking.model.Unit;
 import com.surat.tracking.repository.RoleRepo;
 import com.surat.tracking.repository.UnitRepo;
+import com.surat.tracking.repository.UserRepo;
 import com.surat.tracking.service.IReferensi;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
+import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +25,16 @@ import org.springframework.stereotype.Service;
 public class ReferensiServiceImpl implements IReferensi {
 
     @Autowired
+    UserRepo userRepo;
+
+    @Autowired
     RoleRepo roleRepo;
+
     @Autowired
     UnitRepo unitRepo;
+
+//    @Autowired
+//    SuratRepo suratRepo;
 
     @Override
     public List<Role> listRole() {
@@ -52,4 +60,17 @@ public class ReferensiServiceImpl implements IReferensi {
         }
     }
 
+    @Override
+    public String getNamaUnit() {
+        return null;
+    }
+
+    @Override
+    public String setNoAgenda() {
+        Random rand = new Random();
+        int num = rand.nextInt(900000) + 100000;
+        StringBuilder sb = new StringBuilder();
+        String code = sb.append("RS").append(String.valueOf(num)).toString();
+        return code;
+    }
 }

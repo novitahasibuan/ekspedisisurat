@@ -26,8 +26,15 @@ public class UserServiceImpl implements IUserService {
     public User save(UserRegistrationDto registrationDto) {
         User user = new User(registrationDto.getNip(),
                 registrationDto.getNama_pegawai(),
-                registrationDto.getPassword());
+                registrationDto.getPassword(), registrationDto.getDataRole(), registrationDto.getDataUnit());
         return userRepo.save(user);
+    }
+
+    @Override
+    public String getDataById(Long id) {
+        String username = userRepo.findById(id).toString();
+        System.out.println("username " + username);
+        return "username";
     }
 
 }

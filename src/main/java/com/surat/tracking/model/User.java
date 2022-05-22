@@ -5,10 +5,15 @@
  */
 package com.surat.tracking.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
@@ -22,36 +27,33 @@ import lombok.Data;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(unique = true)
     private String nip;
 
     private String nama_pegawai;
 
     private String password;
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    private Collection<Role> kode_role;
-//
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    private Collection<Unit> kode_unit;
-//    public User(String nip, String password, String nama_pegawai, Collection<Role> kode_role, Collection<Unit> kode_unit) {
-//        super();
-//        this.nip = nip;
-//        this.password = password;
-//        this.nama_pegawai = nama_pegawai;
-//        this.kode_role = kode_role;
-//        this.kode_unit = kode_unit;
-//    }
-    public User(String nip, String nama_pegawai, String password) {
-        super();
+    //add foreignkey role
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "kode_role_id")
+    private Role kode_role;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "kode_uni_id")
+    private Unit kode_unit;
+
+    public User() {
+    }
+
+    public User(String nip, String nama_pegawai, String password, Role kode_role, Unit kode_unit) {
         this.nip = nip;
         this.nama_pegawai = nama_pegawai;
         this.password = password;
-    }
-
-    public User() {
+        this.kode_role = kode_role;
+        this.kode_unit = kode_unit;
     }
 
 }

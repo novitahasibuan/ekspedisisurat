@@ -5,17 +5,14 @@
  */
 package com.surat.tracking.service;
 
-import com.surat.tracking.model.User;
-import com.surat.tracking.web.dto.UserRegistrationDto;
+import com.surat.tracking.model.Surat;
+import com.surat.tracking.web.dto.RegisterSuratDto;
 
 /**
  *
  * @author tik
  */
-public interface IUserService {
+public interface ISuratService {
 
-    public User save(UserRegistrationDto registrationDto);
-    
-    public String getDataById(Long id);
-
+    public Surat save(RegisterSuratDto surat);
 }

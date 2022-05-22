@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Registration</title>
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    </head>
+                    <body>
+                        <nav class="navbar navbar-inverse navbar-fixed-top">
+                            <div class="container">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed"
+                                            data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                                            aria-controls="navbar">
+                                        <span class="sr-only">Toggle navigation</span> 
+                                        <span class="icon-bar"></span> 
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#" th:href="@{/}">Halaman Utama</a>
+                                    <a class="navbar-brand" href="#" th:href="@{/registerSurat}">Register Surat</a>
+                                    <a class="navbar-brand" href="#" th:href="@{/editProfil}">Administration</a>
+                                </div>
+                            </div>
+                        </nav>
+                        <br>
+                            <br>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3">
+
+                                            <!-- success message -->
+                                            <div th:if="${param.success}">
+                                                <div class="alert alert-info">Data Berhasil ditambahkan</div>
+                                            </div>
+
+                                            <h1>Perekaman Surat Baru</h1>
+
+                                            <form th:action="@{/registerSurat/addSurat}" method="post" th:object="${surat}">
+
+                                                <div class="form-group">
+                                                    <label class="control-label" for="noAgenda">No. Agenda</label>
+                                                    <input id="noAgenda" name ="noAgenda" type = "text" class="form-control" th:placeholder="${noAgenda}" th:value="${noAgenda}" 
+                                                           readonly/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="noSurat">No. Surat</label>
+                                                    <input id="noSurat" class="form-control" th:field="*{noSurat}"
+                                                           required autofocus="autofocus" />
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label" for="tglSurat">Tanggal Surat </label> 
+                                                    <input id="tglSurat" type="date" class="form-control" th:field="*{tglSurat}"
+                                                           required autofocus="autofocus" />
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label" for="perihal"> Perihal Surat </label>
+                                                    <textarea id="perihal" rows="4" cols="50" name="comment" class="form-control" th:field="*{perihal}"
+                                                              required autofocus="autofocus" ></textarea>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label" for="asalSurat"> Asal Surat </label> 
+                                                    <input id="asalSurat" class="form-control" th:field="*{asalSurat}" 
+                                                           required autofocus="autofocus" />
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label" for="konseptor"> Konseptor </label> 
+                                                    <input id="konseptor" class="form-control" th:field="*{konseptor}" 
+                                                           required autofocus="autofocus" />
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label" for="tujuanSurat">Tujuan Surat</label>
+                                                    <div class="kt-input-icon kt-input-icon--left">
+                                                        <select id="tujuanSurat" name="tujuanSurat" class="form-control m-select2" required="" th:field="*{tujuanSurat}">
+                                                            <option value="">- Pilih Unit Tujuan -</option>
+                                                            <option th:each="tujuanSurat : ${unit}" 
+                                                                    th:value="${tujuanSurat.getId()}" 
+                                                                    th:text="${tujuanSurat.getNama_unit()}"
+                                                                    ></option>
+                                                        </select>
+                                                        <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-file-text-o"></i></span></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label" for="catatanKonseptor"> Catatan Surat </label> 
+                                                    <textarea id="catatanKonseptor" rows="4" cols="50" name="comment" class="form-control" th:field="*{catatanKonseptor}"
+                                                              required autofocus="autofocus" ></textarea>
+                                                </div>
+                                                <!--
+                                                <div class="form-group">
+                                                    <label class="control-label" for="role">Role Pegawai</label>
+                                                    <div class="kt-input-icon kt-input-icon--left">
+                                                        <select id="layanan" name="layanan" class="form-control m-select2" required="" th:field="*{dataRole}">
+                                                            <option value="">- Pilih Role Pegawai -</option>
+                                                            <option th:each="dataRole : ${role}" 
+                                                                    th:value="${dataRole.getId()}" 
+                                                                    th:text="${dataRole.getNama_role()}"
+                                                                    ></option>
+                                                        </select>
+                                                        <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-file-text-o"></i></span></span>
+                                                    </div>
+                                                </div>
+                                               
+                                                </div>-->
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-success">Register</button>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                </body>
+                                </html>

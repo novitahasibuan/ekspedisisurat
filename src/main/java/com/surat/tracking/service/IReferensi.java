@@ -23,5 +23,9 @@ public interface IReferensi {
     public List<Role> listRole();
 
     public List<Unit> listUnit();
+    
+    public String getNamaUnit();
+    
+    public String setNoAgenda();
 
 }

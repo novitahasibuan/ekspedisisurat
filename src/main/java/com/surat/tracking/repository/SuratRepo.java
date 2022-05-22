@@ -5,8 +5,9 @@
  */
 package com.surat.tracking.repository;
 
-
+import com.surat.tracking.model.Surat;
 import com.surat.tracking.model.User;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,9 +17,7 @@ import org.springframework.stereotype.Repository;
  * @author tik
  */
 @Repository
-public interface UserRepo extends JpaRepository<User, Long>{
-    @Query(value = "SELECT tbltrx.* FROM KUASA_TRX_PENUNJUKAN tbltrx "
-            + "WHERE tbltrx.no_surat_kuasa = ?1 ",
-            nativeQuery = true)
-    User getDataById(String no_surat_kuasa);
+public interface SuratRepo extends JpaRepository<Surat, Long> {
+
+    Surat findByNoAgenda(String id);
 }

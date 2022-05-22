@@ -5,6 +5,8 @@
  */
 package com.surat.tracking.web.dto;
 
+import com.surat.tracking.model.Role;
+import com.surat.tracking.model.Unit;
 import lombok.Data;
 
 /**
@@ -17,15 +19,20 @@ public class UserRegistrationDto {
     private String nip;
     private String nama_pegawai;
     private String password;
+    private Role dataRole;
+    private Unit dataUnit;
+    
+    public UserRegistrationDto() {
+    }
 
-    public UserRegistrationDto(String nip, String nama_pegawai, String password) {
-        super();
+    public UserRegistrationDto(String nip, String nama_pegawai, String password, Role dataRole, Unit dataUnit) {
         this.nip = nip;
         this.nama_pegawai = nama_pegawai;
         this.password = password;
+        this.dataRole = dataRole;
+        this.dataUnit = dataUnit;
     }
 
-    public UserRegistrationDto() {
-    }
+    
 
 }
