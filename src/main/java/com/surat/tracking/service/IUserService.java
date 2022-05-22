@@ -7,6 +7,7 @@ package com.surat.tracking.service;
 
 import com.surat.tracking.model.User;
 import com.surat.tracking.web.dto.UserRegistrationDto;
+import java.util.List;
 
 /**
  *
@@ -16,6 +17,6 @@ public interface IUserService {
 
     public User save(UserRegistrationDto registrationDto);
     
-    public String getDataById(Long id);
+    public List<User> getUsers();
 
 }

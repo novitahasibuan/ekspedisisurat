@@ -48,8 +48,9 @@ public class RegisterSuratController {
     @RequestMapping(value = {"/addSurat"}, method = RequestMethod.POST)
     public @ResponseBody
     String registerUser(@ModelAttribute("surat") RegisterSuratDto registrationDto) {
+        
         suratService.save(registrationDto);
-        return "redirect:/registerSurat?success";
+        return "redirect:/registerSurat";
     }
 
 }

@@ -9,6 +9,7 @@ import com.surat.tracking.model.User;
 import com.surat.tracking.repository.UserRepo;
 import com.surat.tracking.service.IUserService;
 import com.surat.tracking.web.dto.UserRegistrationDto;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,10 +32,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public String getDataById(Long id) {
-        String username = userRepo.findById(id).toString();
-        System.out.println("username " + username);
-        return "username";
+    public List<User> getUsers() {
+        return userRepo.findAll();
     }
 
 }

@@ -40,6 +40,7 @@ public class UserManagementController {
     @RequestMapping(value = {""}, method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new UserRegistrationDto());
+        model.addAttribute("users", userService.getUsers());
         model.addAttribute("role", refService.listRole());
         model.addAttribute("unit", refService.listUnit());
         return "registeruser";
@@ -48,8 +49,12 @@ public class UserManagementController {
     @RequestMapping(value = {"/addRegistration"}, method = RequestMethod.POST)
     public @ResponseBody
     String registerUser(@ModelAttribute("user") UserRegistrationDto registrationDto) {
-        userService.save(registrationDto);
-        return "redirect:/registration?success";
+        try {
+            userService.save(registrationDto);
+            return "redirect:/usermanagement?success";
+        } catch (Exception e) {
+            return "exception " + e;
+        }
     }
 
     @RequestMapping(value = {"/editProfil"}, method = RequestMethod.GET)
@@ -59,7 +64,7 @@ public class UserManagementController {
         model.addAttribute("unit", refService.listUnit());
         return "editprofil";
     }
-    
+
     @RequestMapping(value = {"/saveEdit"}, method = RequestMethod.POST)
     public @ResponseBody
     String editProfil(@ModelAttribute("user") UserRegistrationDto registrationDto) {

@@ -17,8 +17,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserRepo extends JpaRepository<User, Long>{
-    @Query(value = "SELECT tbltrx.* FROM KUASA_TRX_PENUNJUKAN tbltrx "
-            + "WHERE tbltrx.no_surat_kuasa = ?1 ",
-            nativeQuery = true)
-    User getDataById(String no_surat_kuasa);
+
 }
