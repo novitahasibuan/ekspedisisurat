@@ -16,12 +16,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author tik
  */
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class AppController {
 
     @RequestMapping(value = {""}, method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
-       
         return "index";
     }
+
+    @RequestMapping(value = {"/registeruser"}, method = RequestMethod.GET)
+    public String showRegistrationForm2(Model model) {
+        return "registeruser";
+    }
+
+    @RequestMapping(value = {"/registersurat"}, method = RequestMethod.GET)
+    public String showRegistrationForm3(Model model) {
+        return "registersurat";
+    }
+
+    @RequestMapping(value = {"/rolepegawai"}, method = RequestMethod.GET)
+    public String showRegistrationForm4(Model model) {
+        return "index";
+    }
+
 }

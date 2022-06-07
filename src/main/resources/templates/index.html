@@ -1,25 +1,138 @@
-<!DOCTYPE html>
 <html lang="en">
     <head th:replace="fragments/header::header">
     </head>
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
-        <div class="page-wrapper">
-            <div th:replace = "fragments/navigation:: navigation"></div>
-            <div class="clearfix"></div>
 
+    <!--<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">-->
+    <body>
+        <div class="page-wrapper">
             <div class="page-container">
-                <!--<div th:replace = "fragments/sidebar:: sidebar"></div>-->
+                <div th:insert = "fragments/navigation::navigation"></div>
+                <div class="clearfix"></div>
+                <div th:replace = "fragments/sidebar::sidebar"></div>
 
                 <div class="page-content-wrapper">
                     <div class="page-content">
-                        Akan Diisi Data Table
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title">Register Surat Direktorat Teknologi Informasi dan Komunikasi</h4>
+                                    <div class="data-tables datatable-dark">
+                                        <table id="dataTable" class="table table-hover progress-table text-center">
+                                            <thead class="text-capitalize">
+                                                <!--                                        <table id="dataTable3" class="text-center">
+                                                                                            <thead class="text-capitalize">-->
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>No Agenda</th>
+                                                    <th>No. Surat</th>
+                                                    <th>Konseptor</th>
+                                                    <th>Unit Kerja</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>01001</td>
+                                                    <td>ND-1/PJ.123/2022</td>
+                                                    <td>Deni</td>
+                                                    <td>Subdirektorat PSPP</td>
+                                                    <td><span class="status-p bg-primary">Baru</span></td>
+                                                    <td>
+                                                        <ul class="d-flex justify-content-center">
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-eye"></i></a></li>
+                                                            <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
+
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>01002</td>
+                                                    <td>ND-2/PJ.122/2022</td>
+                                                    <td>Jodi</td>
+                                                    <td>Subdirektorat PSP</td>
+                                                    <td><span class="status-p bg-warning">Proses</span></td>
+                                                    <td>
+                                                        <ul class="d-flex justify-content-center">
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-eye"></i></a></li>
+                                                            <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
+                                                        </ul>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>01003</td>
+                                                    <td>ND-3/PJ.124/2022</td>
+                                                    <td>Faisal</td>
+                                                    <td>Subdirektorat PEPSI</td>
+                                                    <td><span class="status-p badge-danger">Ditolak</span></td>
+                                                    <td>
+                                                        <ul class="d-flex justify-content-center">
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-eye"></i></a></li>
+                                                            <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
+                                                        </ul>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>01004</td>
+                                                    <td>ND-4/PJ.125/2022</td>
+                                                    <td>Mario</td>
+                                                    <td>Subdirektorat PIKSI</td>
+                                                    <td><span class="status-p bg-success">Selesai</span></td>
+                                                    <td>
+                                                        <ul class="d-flex justify-content-center">
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-eye"></i></a></li>
+                                                            <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
+                                                        </ul>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>01005</td>
+                                                    <td>ND-5/PJ.123/2022</td>
+                                                    <td>Andika</td>
+                                                    <td>Subdirektorat PIKSI</td>
+                                                    <td><span class="status-p bg-success">Selesai</span></td>
+                                                    <td>
+                                                        <ul class="d-flex justify-content-center">
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-eye"></i></a></li>
+                                                            <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
+                                                        </ul>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-
             </div>
-            <!--<div th:replace = "fragments/footer:: footer"></div>-->
+            <div th:replace = "fragments/footer:: footer"></div>
         </div> 
+        <script src="../assets/js/vendor/jquery-2.2.4.min.js"></script>
+        <!-- bootstrap 4 js -->
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/owl.carousel.min.js"></script>
+        <script src="../assets/js/metisMenu.min.js"></script>
+        <script src="../assets/js/jquery.slimscroll.min.js"></script>
+        <script src="../assets/js/jquery.slicknav.min.js"></script>
 
+        <!-- Start datatable js -->
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+        <!-- others plugins -->
+        <script src="../assets/js/plugins.js"></script>
+        <script src="../assets/js/scripts.js"></script>
     </body>
 </html>
