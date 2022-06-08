@@ -20,8 +20,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AppController {
 
     @RequestMapping(value = {""}, method = RequestMethod.GET)
-    public String showRegistrationForm(Model model) {
-        return "index";
+    public String home() {
+        return "Home Sekre Es 3";
+    }
+    
+    @RequestMapping(value = {"/sekrees2"}, method = RequestMethod.GET)
+    public String sekrees2() {
+        return "Home Sekre";
     }
 
 //    @RequestMapping(value = {"/registeruser"}, method = RequestMethod.GET)
@@ -34,9 +39,9 @@ public class AppController {
 //        return "registersurat";
 //    }
 
-    @RequestMapping(value = {"/rolepegawai"}, method = RequestMethod.GET)
-    public String showRegistrationForm4(Model model) {
-        return "index";
-    }
+//    @RequestMapping(value = {"/rolepegawai"}, method = RequestMethod.GET)
+//    public String showRegistrationForm4(Model model) {
+//        return "index";
+//    }
 
 }
