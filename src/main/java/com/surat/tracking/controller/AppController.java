@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author tik
  */
 @Controller
-//@RequestMapping("/")
+@RequestMapping("/")
 public class AppController {
 
     @RequestMapping(value = {""}, method = RequestMethod.GET)

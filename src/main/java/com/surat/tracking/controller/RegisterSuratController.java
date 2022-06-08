@@ -25,7 +25,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
  * @author tik
  */
 @Controller
-@RequestMapping("/registerSurat")
+@RequestMapping("/registersurat")
 public class RegisterSuratController {
 
     @Autowired
