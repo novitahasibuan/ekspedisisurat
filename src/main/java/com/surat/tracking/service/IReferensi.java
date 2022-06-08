@@ -7,8 +7,8 @@ package com.surat.tracking.service;
 
 import com.surat.tracking.model.Role;
 import com.surat.tracking.model.Unit;
+import com.surat.tracking.web.dto.UnitRegistrasiDto;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -27,5 +27,7 @@ public interface IReferensi {
     public String getNamaUnit();
     
     public String setNoAgenda();
+    
+    public Unit saveUnit (UnitRegistrasiDto unit);
 
 }

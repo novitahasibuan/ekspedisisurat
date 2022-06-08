@@ -15,10 +15,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 import lombok.Data;
 
 /**
- *
  * @author tik
  */
 @Data
@@ -31,7 +31,7 @@ public class User {
     private Long id;
 
     @Column(unique = true)
-    private String nip;
+    private String username;
 
     private String nama_pegawai;
 
@@ -49,11 +49,21 @@ public class User {
     }
 
     public User(String nip, String nama_pegawai, String password, Role kode_role, Unit kode_unit) {
-        this.nip = nip;
+        this.username = nip;
         this.nama_pegawai = nama_pegawai;
         this.password = password;
         this.kode_role = kode_role;
         this.kode_unit = kode_unit;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "nip='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", kode_role=" + kode_role.getId().toString() +
+                '}';
+    }
+
+    
 }
