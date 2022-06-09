@@ -24,24 +24,4 @@ public class AppController {
         return "index";
     }
     
-    @RequestMapping(value = {"/sekrees2"}, method = RequestMethod.GET)
-    public String sekrees2() {
-        return "Home Sekre";
-    }
-
-//    @RequestMapping(value = {"/registeruser"}, method = RequestMethod.GET)
-//    public String showRegistrationForm2(Model model) {
-//        return "registeruser";
-//    }
-
-//    @RequestMapping(value = {"/registersurat"}, method = RequestMethod.GET)
-//    public String showRegistrationForm3(Model model) {
-//        return "registersurat";
-//    }
-
-//    @RequestMapping(value = {"/rolepegawai"}, method = RequestMethod.GET)
-//    public String showRegistrationForm4(Model model) {
-//        return "index";
-//    }
-
 }
