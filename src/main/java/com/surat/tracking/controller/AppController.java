@@ -21,7 +21,7 @@ public class AppController {
 
     @RequestMapping(value = {""}, method = RequestMethod.GET)
     public String home() {
-        return "Home Sekre Es 3";
+        return "index";
     }
     
     @RequestMapping(value = {"/sekrees2"}, method = RequestMethod.GET)
