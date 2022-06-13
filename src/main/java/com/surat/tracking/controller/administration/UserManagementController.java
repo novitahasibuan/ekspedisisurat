@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.surat.tracking.controller;
+package com.surat.tracking.controller.administration;
 
 import com.surat.tracking.model.User;
 import com.surat.tracking.repository.UserRepo;

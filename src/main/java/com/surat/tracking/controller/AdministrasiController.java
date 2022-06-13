@@ -21,13 +21,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author tik
  */
 @Controller
+@RequestMapping(value = {"/unitmanagement"})
 public class AdministrasiController {
 
     @Autowired
     IReferensi refService;
 
-    @RequestMapping(value = {"/unitmanagement"}, method = RequestMethod.GET)
+    @RequestMapping(value = {""}, method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
+        model.addAttribute("role", refService.listRole());
+        model.addAttribute("unit", refService.listUnit());
         return "registerunit";
     }
 

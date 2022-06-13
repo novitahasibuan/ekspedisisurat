@@ -1,133 +1,157 @@
 <html lang="en">
     <head th:replace="fragments/header::header"></head>
-
     <body>
         <div class="page-wrapper">
-            <div th:replace = "fragments/navigation::navigation"></div>
-            <div class="clearfix"></div>
-
             <div class="page-container">
+                <div th:insert = "fragments/navigation::navigation"></div>
+                <div class="clearfix"></div>
                 <div th:replace = "fragments/sidebar::sidebar"></div>
-
-                <div class="page-container">
-                    <div class="container col-md-10">
+                <div class="page-wrapper">
+                    <div class="container col-md-12">
                         <div class="row">
                             <div th:if="${param.success}">
                                 <div class="alert alert-info">Data Berhasil ditambahkan</div>
                             </div>
-                            <div class="container">
-                                <h2>Tambah User</h2>
-                            </div>
-                            <form th:action="@{/usermanagement/addRegistration}" method="post" th:object="${user}" >
-                                <div class="form-group row g-5">
-                                    <label class="col-sm-2 col-form-label" for="nip">NIP<span class="required text-danger"> *</span></label>
-                                    <div class="col-md-6">
-                                        <div class="col-sm-8 col-form-label">
-                                            <input id="nip" class="form-control" th:field="*{nip}" required autofocus="autofocus" maxlength="9"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row g-5">
-                                    <label class="col-sm-2 col-form-label" for="nama_pegawai">Nama Pegawai <span class="required text-danger"> *</span></label> 
-                                    <div class="col-md-6">
-                                        <div class="col-sm-8 col-form-label">
-                                            <input id="nama_pegawai" class="form-control" th:field="*{nama_pegawai}" required autofocus="autofocus" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row g-5">
-                                    <label class="col-sm-2 col-form-label" for="password"> Password <span class="required text-danger"> *</span></label> 
-                                    <div class="col-md-6">
-                                        <div class="col-sm-8 col-form-label">
-                                            <input id="password" class="form-control" type="password" th:field="*{password}" required autofocus="autofocus" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row g-5">
-                                    <label class="col-sm-2 col-form-label" for="role">Role Pegawai<span class="required text-danger"> *</span></label>
-                                    <div class="col-md-6">
-                                        <div class="col-sm-8 col-form-label">
-                                            <select id="dataRole" name="dataRole" class="form-control m-select2" required="" th:field="*{dataRole}">
-                                                <option value="">- Pilih Role Pegawai -</option>
-                                                <option th:each="dataRole : ${role}" 
-                                                        th:value="${dataRole.getId()}" 
-                                                        th:text="${dataRole.getNama_role()}"
-                                                        ></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row g-5">
-                                    <label class="col-sm-2 col-form-label" for="unit">Unit Pegawai<span class="required text-danger"> *</span></label>
-                                    <div class="col-md-6">
-                                        <div class="col-sm-8 col-form-label">
-                                            <select id="dataUnit" name="dataUnit" class="form-control m-select2" required="" th:field="*{dataUnit}">
-                                                <option value="">- Pilih Unit Pegawai -</option>
-                                                <option th:each="dataUnit : ${unit}" 
-                                                        th:value="${dataUnit.getId()}" 
-                                                        th:text="${dataUnit.getNama_unit()}"
-                                                        ></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Register</button>
-                                </div>
-
-                            </form>
                         </div>
-                        <!--<div class="col-md-12">-->
+                        <div class="main-content-inner">
+                            <div class="row">
+                                <div class="col-12 mt-5">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title">Tambah User Sekretaris Direktorat Teknologi Informasi dan Komunikasi</h4>
+                                            <form th:action="@{/usermanagement/addRegistration}" method="post" th:object="${user}" >
+                                                <div class="form-group row g-5">
+                                                    <label class="col-sm-2 col-form-label" for="nip">NIP<span class="required text-danger"> *</span></label>
+                                                    <div class="col-md-6">
+                                                        <div class="col-sm-8 col-form-label">
+                                                            <input id="nip" class="form-control" th:field="*{nip}" required autofocus="autofocus" maxlength="9"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row g-5">
+                                                    <label class="col-sm-2 col-form-label" for="nama_pegawai">Nama Pegawai <span class="required text-danger"> *</span></label> 
+                                                    <div class="col-md-6">
+                                                        <div class="col-sm-8 col-form-label">
+                                                            <input id="nama_pegawai" class="form-control" th:field="*{nama_pegawai}" required autofocus="autofocus" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row g-5">
+                                                    <label class="col-sm-2 col-form-label" for="password"> Password <span class="required text-danger"> *</span></label> 
+                                                    <div class="col-md-6">
+                                                        <div class="col-sm-8 col-form-label">
+                                                            <input id="password" class="form-control" type="password" th:field="*{password}" required autofocus="autofocus" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row g-5">
+                                                    <label class="col-sm-2 col-form-label" for="role">Role Pegawai<span class="required text-danger"> *</span></label>
+                                                    <div class="col-md-6">
+                                                        <div class="col-sm-8 col-form-label">
+                                                            <select id="dataRole" name="dataRole" class="form-control m-select2" required="" th:field="*{dataRole}">
+                                                                <option value="">- Pilih Role Pegawai -</option>
+                                                                <option th:each="dataRole : ${role}" 
+                                                                        th:value="${dataRole.getId()}" 
+                                                                        th:text="${dataRole.getNama_role()}"
+                                                                        ></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row g-5">
+                                                    <label class="col-sm-2 col-form-label" for="unit">Unit Pegawai<span class="required text-danger"> *</span></label>
+                                                    <div class="col-md-6">
+                                                        <div class="col-sm-8 col-form-label">
+                                                            <select id="dataUnit" name="dataUnit" class="form-control m-select2" required="" th:field="*{dataUnit}">
+                                                                <option value="">- Pilih Unit Pegawai -</option>
+                                                                <option th:each="dataUnit : ${unit}" 
+                                                                        th:value="${dataUnit.getId()}" 
+                                                                        th:text="${dataUnit.getNama_unit()}"
+                                                                        ></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-success">Simpan</button>
+                                                </div>
 
-
-
-                        <!--                                    <table class="table table-striped table-bordered">
-                                                                <tr>
-                                                                    <th class="text-center">No.</th>
-                                                                    <th class="text-center">Nomor Induk Pegawai</th>
-                                                                    <th class="text-center">Nama Pegawai</th>
-                                                                    <th class="text-center">Role Pegawai</th>
-                                                                    <th class="text-center">Unit Pegawai</th>
-                                                                </tr>
-                                                                <tr th:if="${#lists.isEmpty(users)}">
-                                                                    <td colspan="5">No Records found. Add some...!</td>
-                                                                </tr>
-                                                                <tr th:each="user : ${users}">
-                                                                    <td th:text="${user.id}"></td>
-                                                                    <td th:text="${user.nip}"></td>
-                                                                    <td th:text="${user.nama_pegawai}"></td>
-                                                                    <td th:text="${user.kode_role.getNama_role()}"></td>
-                                                                    <td th:text="${user.kode_unit.getNama_unit()}"></td>
-                                                                </tr>
-                                                            </table>-->
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
             </div>
 
-            <!--</div>-->
-            <!--<div th:replace = "fragments/footer:: footer"></div>-->
-            <div th:replace = "fragments/footer:: footer"></div>
-        </div> 
-        <script src="../assets/js/vendor/jquery-2.2.4.min.js"></script>
-        <!-- bootstrap 4 js -->
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/owl.carousel.min.js"></script>
-        <script src="../assets/js/metisMenu.min.js"></script>
-        <script src="../assets/js/jquery.slimscroll.min.js"></script>
-        <script src="../assets/js/jquery.slicknav.min.js"></script>
+<!--            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <div class="page-wrapper">
+                        <div class="container col-md-10">
+                            <div class="row">
 
-        <!-- Start datatable js -->
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-        <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
-        <!-- others plugins -->
-        <script src="../assets/js/plugins.js"></script>
-        <script src="../assets/js/scripts.js"></script>
-    </body>   
+                                <div class="container">
+                                    <h2>Tambah User Sekretaris Direktorat Teknologi Informasi dan Komunikasi</h2>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+
+
+
+                                                                <table class="table table-striped table-bordered">
+                                                                    <tr>
+                                                                        <th class="text-center">No.</th>
+                                                                        <th class="text-center">Nomor Induk Pegawai</th>
+                                                                        <th class="text-center">Nama Pegawai</th>
+                                                                        <th class="text-center">Role Pegawai</th>
+                                                                        <th class="text-center">Unit Pegawai</th>
+                                                                    </tr>
+                                                                    <tr th:if="${#lists.isEmpty(users)}">
+                                                                        <td colspan="5">No Records found. Add some...!</td>
+                                                                    </tr>
+                                                                    <tr th:each="user : ${users}">
+                                                                        <td th:text="${user.id}"></td>
+                                                                        <td th:text="${user.nip}"></td>
+                                                                        <td th:text="${user.nama_pegawai}"></td>
+                                                                        <td th:text="${user.kode_role.getNama_role()}"></td>
+                                                                        <td th:text="${user.kode_unit.getNama_unit()}"></td>
+                                                                    </tr>
+                                                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+
+        <!--</div>-->
+        <!--<div th:replace = "fragments/footer:: footer"></div>-->
+        <div th:replace = "fragments/footer:: footer"></div>
+    </div> 
+    <script src="../assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/metisMenu.min.js"></script>
+    <script src="../assets/js/jquery.slimscroll.min.js"></script>
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Start datatable js -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+    <!-- others plugins -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+</body>   
 </html>

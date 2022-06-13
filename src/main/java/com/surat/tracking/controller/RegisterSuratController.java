@@ -5,7 +5,6 @@
  */
 package com.surat.tracking.controller;
 
-import com.surat.tracking.model.User;
 import com.surat.tracking.service.IReferensi;
 import com.surat.tracking.service.ISuratService;
 import com.surat.tracking.service.IUserService;
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  *
@@ -52,5 +49,6 @@ public class RegisterSuratController {
         suratService.save(registrationDto);
         return "redirect:/registerSurat";
     }
+    
 
 }

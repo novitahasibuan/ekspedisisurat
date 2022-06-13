@@ -12,25 +12,19 @@
                 <div th:replace = "fragments/sidebar::sidebar"></div>
                 <div class="page-wrapper">
                     <div class="container col-md-12">
-                        <div class="row">
-                            <div th:if="${param.success}">
-                                <div class="alert alert-info">Data Berhasil ditambahkan</div>
-                            </div>
-                        </div>
                         <div class="main-content-inner">
                             <div class="row">
                                 <!-- data table start -->
                                 <div class="col-12 mt-5">
                                     <div class="card">
                                         <div class="card-body">
-<!--                                            <h4 class="header-title">Perekaman Surat Baru</h4>-->
-                                            <h4 class="header-title">Perekaman Surat Baru</h4>
-                                            <form th:action="@{/registerSurat/addSurat}" method="post" th:object="${surat}">
+                                            <h4 class="header-title">Form Surat</h4>
+<!--                                            <form th:action="@{/formsurat/addSurat}" method="post" th:object="${surat}">-->
                                                 <div class="form-group row g-5">
                                                     <label class="col-sm-2 col-form-label" for="noAgenda">No. Agenda<span class="required text-danger"> </span></label>
                                                     <div class="col-md-6">
                                                         <div class="col-sm-8 col-form-label">
-                                                            <input id="noAgenda" name ="noAgenda" type = "text" class="form-control" th:placeholder="${noAgenda}" th:value="${noAgenda}" readonly/>
+                                                            <input id="noAgenda" name ="noAgenda" type = "text" class="form-control" th:placeholder="${noAgenda}" readonly/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -38,7 +32,7 @@
                                                     <label class="col-sm-2 col-form-label" for="noSurat">No. Surat<span class="required text-danger"> *</span></label>
                                                     <div class="col-md-6">
                                                         <div class="col-sm-8 col-form-label">
-                                                            <input id="noSurat" class="form-control" th:field="*{noSurat}" required autofocus="autofocus" />
+                                                            <input id="noSurat" class="form-control" required autofocus="autofocus" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -46,7 +40,7 @@
                                                     <label class="col-sm-2 col-form-label" for="tglSurat">Tanggal Surat<span class="required text-danger"> *</span></label>
                                                     <div class="col-md-6">
                                                         <div class="col-sm-8 col-form-label">
-                                                            <input id="tglSurat" type="date" class="form-control" th:field="*{tglSurat}" required autofocus="autofocus" />
+                                                            <input id="tglSurat" type="date" class="form-control" required autofocus="autofocus" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -54,7 +48,7 @@
                                                     <label class="col-sm-2 col-form-label" for="perihal">Perihal Surat<span class="required text-danger"> * </span></label>
                                                     <div class="col-md-6">
                                                         <div class="col-sm-8 col-form-label">
-                                                            <input id="perihal" class="form-control" th:field="*{perihal}" required autofocus="autofocus" />
+                                                            <input id="perihal" class="form-control" required autofocus="autofocus" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -62,7 +56,7 @@
                                                     <label class="col-sm-2 col-form-label" for="asalSurat"> Asal Surat <span class="required text-danger"> * </span></label>
                                                     <div class="col-md-6">
                                                         <div class="col-sm-8 col-form-label">
-                                                            <input id="asalSurat" class="form-control" th:field="*{asalSurat}" required autofocus="autofocus" />
+                                                            <input id="asalSurat" class="form-control" required autofocus="autofocus" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -71,7 +65,7 @@
                                                     <label class="col-sm-2 col-form-label" for="konseptor"> Konseptor <span class="required text-danger"> * </span></label>
                                                     <div class="col-md-6">
                                                         <div class="col-sm-8 col-form-label">
-                                                            <input id="konseptor" class="form-control" th:field="*{konseptor}" required autofocus="autofocus" />
+                                                            <input id="konseptor" class="form-control" required autofocus="autofocus" />
                                                         </div></div>
                                                 </div>
 
@@ -79,33 +73,53 @@
                                                     <label class="col-sm-2 col-form-label" for="tujuanSurat">Tujuan Surat<span class="required text-danger">* </span></label>
                                                     <div class="col-md-6">
                                                         <div class="col-sm-8 col-form-label">
-                                                            <select id="tujuanSurat" name="tujuanSurat" class="form-control m-select2" required="" th:field="*{tujuanSurat}">
+                                                            <input id="tujuanSurat" class="form-control" required autofocus="autofocus" />
+<!--                                                            <select id="tujuanSurat" name="tujuanSurat" class="form-control m-select2" required="" th:field="*{tujuanSurat}">
                                                                 <option value="">- Pilih Unit Tujuan -</option>
                                                                 <option th:each="tujuanSurat : ${unit}" 
                                                                         th:value="${tujuanSurat.getId()}" 
                                                                         th:text="${tujuanSurat.getNama_unit()}"
                                                                         ></option>
-                                                            </select>
+                                                            </select>-->
                                                             <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-file-text-o"></i></span></span>
                                                         </div>
                                                     </div>
                                                 </div>
-
+ 
                                                 <div class="form-group row g-5">
-                                                    <label class="col-sm-2 col-form-label" for="catatanKonseptor"> Catatan Surat </label>
+                                                    <label class="col-sm-2 col-form-label" for="catatanKonseptor"> Catatan </label>
                                                     <div class="col-md-6">
                                                         <div class="col-sm-8 col-form-label">
-                                                            <textarea id="catatanKonseptor" rows="4" cols="50" name="comment" class="form-control" th:field="*{catatanKonseptor}"
+                                                            <textarea id="catatanKonseptor" rows="4" cols="50" name="comment" class="form-control" 
                                                                       required autofocus="autofocus" ></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <div class="col-md-12">
-                                                        <button type="submit" class="btn btn-success">Simpan</button>
+                                                
+                                                 <div class="form-group row g-5">
+                                                    <label class="col-sm-2 col-form-label" for="statusSurat"> Status Surat <span class="required text-danger"> * </span></label>
+                                                    <div class="col-md-6">
+                                                        <div class="col-sm-8 col-form-label">
+                                                            <input id="statusSurat" class="form-control" required autofocus="autofocus" />
+                                                        </div></div>
+                                                </div>
+                                                
+                                                 <div class="form-group row g-5">
+                                                    <label class="col-sm-2 col-form-label" for="catatanEselon"> Catatan </label>
+                                                    <div class="col-md-6">
+                                                        <div class="col-sm-8 col-form-label">
+                                                            <textarea id="catatanEselon" rows="4" cols="50" name="comment" class="form-control" 
+                                                                      required autofocus="autofocus" ></textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                                
+                                                <div class="form-group row">
+                                                    <div class="col-md-12">
+                                                        <button type="submit" class="btn btn-success">Kembali</button>
+                                                    </div>
+                                                </div>
+<!--                                            </form>-->
                                         </div>
                                     </div>
                                 </div>
